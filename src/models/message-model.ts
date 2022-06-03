@@ -9,7 +9,7 @@ import {
 
 interface Message
   extends Model<InferAttributes<Message>, InferCreationAttributes<Message>> {
-  id: string
+  id?: string
   template_name: string
   position: number
 }
@@ -20,7 +20,7 @@ const MessageModel = db.define<Message>("message_flow", {
     primaryKey: true,
   },
   template_name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   position: {
