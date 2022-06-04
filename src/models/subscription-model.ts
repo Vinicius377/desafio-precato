@@ -15,7 +15,7 @@ interface Subscription
   id?: string
   name: string
   subscription_date?: Date
-  last_message: number
+  last_message?: number
   active?: boolean
   email: string
 }
