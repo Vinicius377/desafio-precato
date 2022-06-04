@@ -35,6 +35,7 @@ const SubscriptionModel = db.define<Subscription>("subscription", {
   },
   last_message: {
     type: DataTypes.INTEGER,
+    defaultValue: 1,
   },
   active: {
     type: DataTypes.BOOLEAN,
