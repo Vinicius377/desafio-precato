@@ -26,6 +26,7 @@ const MessageModel = db.define<Message>("message_flow", {
   position: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
+    allowNull: false,
   },
 })
 

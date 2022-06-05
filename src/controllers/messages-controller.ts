@@ -25,7 +25,7 @@ async function Message(req: Request, res: Response) {
       where: { position: lastMessage },
     })
     if (!message) {
-      res.status(404).json({ message: "message not found" })
+      res.status(204).json({ message: "message not found" })
       return
     }
     res.status(200).json(message)

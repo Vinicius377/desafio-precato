@@ -7,6 +7,7 @@ interface BodyRequest {
 }
 
 async function Subscription(req: Request, res: Response) {
+  console.log(req.body)
   const { email, name }: BodyRequest = req.body
 
   if (!email || !name) {
@@ -21,7 +22,7 @@ async function Subscription(req: Request, res: Response) {
   }
 
   try {
-    const [, created] = await SubscriptionModel.findOrCreate({
+    const [subscriber, created] = await SubscriptionModel.findOrCreate({
       where: {
         email,
       },
@@ -31,7 +32,7 @@ async function Subscription(req: Request, res: Response) {
       },
     })
     if (created) {
-      res.status(201).json({ message: "subscribe new user" })
+      res.status(201).json(subscriber)
     } else {
       res.status(400).json({ message: "there is a subscriber with this email" })
     }
