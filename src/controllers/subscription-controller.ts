@@ -30,6 +30,7 @@ async function Subscription(req: Request, res: Response) {
         email,
         name,
       },
+      fields: ["id", "email", "name"],
     })
     if (created) {
       res.status(201).json(subscriber)

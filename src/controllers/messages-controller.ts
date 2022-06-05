@@ -15,6 +15,7 @@ async function Message(req: Request, res: Response) {
       })
       res.status(200).json(message)
       return
+    } else {
     }
   } catch (e) {
     res.status(500).json({ error: "internal error" + e })
@@ -23,6 +24,7 @@ async function Message(req: Request, res: Response) {
   try {
     const message = await MessageModel.findOne({
       where: { position: lastMessage },
+      attributes: ["position", "template_name", "id"],
     })
     if (!message) {
       res.status(204).json({ message: "message not found" })

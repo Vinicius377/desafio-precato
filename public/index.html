@@ -17,6 +17,11 @@
     ></script>
     <script src="./script.js" defer></script>
     <title>Desafio back-end Precato</title>
+    <style>
+      body {
+        background-color: #223660;
+      }
+    </style>
   </head>
   <body>
     <h4 id="email"></h4>
@@ -24,10 +29,12 @@
       <h1 id="day-message"></h1>
       <p id="message"></p>
     </div>
+
     <form
       class="w-50 m-auto mt-10 bg-success bg-gradient p-2 rounded"
       id="subscribe"
     >
+      <h2>Inscreva-se</h2>
       <div class="mb-3">
         <label for="name-input" class="form-label">Nome</label>
         <input type="text" class="form-control" id="name-input" required />
@@ -39,11 +46,11 @@
 
       <button type="submit" class="btn btn-primary">Inscreva-se!</button>
     </form>
-
     <form
       class="w-50 m-auto mt-10 bg-success bg-gradient p-2 rounded my-4"
       id="create-message"
     >
+      <h2>Criar uma mensagem</h2>
       <div class="mb-3">
         <label for="template-name" class="form-label">Mensagem</label>
         <textarea rows="5" class="form-control" id="template-name" required>

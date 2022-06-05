@@ -31,7 +31,7 @@ const SubscriptionModel = db.define<Subscription>("subscription", {
   },
   subscription_date: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
+    defaultValue: new Date(),
   },
   last_message: {
     type: DataTypes.INTEGER,
