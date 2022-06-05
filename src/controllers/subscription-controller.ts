@@ -11,10 +11,13 @@ async function Subscription(req: Request, res: Response) {
 
   if (!email || !name) {
     res.status(400).json({ error: "insuficient data" })
+    return
   }
+
   const isValidEmail = new RegExp(/@+[a-z]+\.com$/).test(email)
   if (!isValidEmail) {
     res.status(400).json({ error: "invalid email" })
+    return
   }
 
   try {

@@ -1,11 +1,11 @@
 import schedule from "node-schedule"
 import SubscriptionModel from "../models/subscription-model"
 
-const date = new Date()
-date.setHours(4)
+const startData = new Date()
+startData.setHours(23, 59)
 
 function updateLastMessage() {
-  schedule.scheduleJob(date, async () => {
+  schedule.scheduleJob({ start: startData, rule: "*/23 * * *" }, async () => {
     try {
       await SubscriptionModel.increment("last_message", {
         where: { active: true },

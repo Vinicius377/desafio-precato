@@ -6,7 +6,10 @@
 - Nodejs
 - Typescript
 - Sequelize
+- Node-schedule
 - Sqlite
+  - Motivo:
+    Utilizaria o MySql ou Postgres já que é um dos requisitos para a vaga, mas escolhi o Sqlite por sua facilidade na execução em outras maquinas
 
 ## Regras de negócio
 

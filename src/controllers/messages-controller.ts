@@ -7,12 +7,25 @@ async function Message(req: Request, res: Response) {
   const { lastMessage } = res.locals
 
   try {
+    const lastDayMessage = await MessageModel.max("position")
+    if (lastDayMessage === lastMessage) {
+      await SubscriptionModel.update({ active: false }, { where: { id } })
+      const message = await MessageModel.findOne({
+        where: { position: lastMessage },
+      })
+      res.status(200).json(message)
+      return
+    }
+  } catch (e) {
+    res.status(500).json({ error: "internal error" + e })
+  }
+
+  try {
     const message = await MessageModel.findOne({
       where: { position: lastMessage },
     })
     if (!message) {
-      await SubscriptionModel.update({ active: false }, { where: { id } })
-      res.status(400).json({ message: "user already readed all" })
+      res.status(404).json({ message: "message not found" })
       return
     }
     res.status(200).json(message)
